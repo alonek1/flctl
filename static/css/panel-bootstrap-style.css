@@ -1,0 +1,49 @@
+#statuspanel{
+position:absolute;
+right:25%;
+top:150px;
+width:950px;
+z-index: -1;
+}
+
+#statuspanelbody{
+font-size: 120%;
+font-weight: bold;
+color: #808080;
+/*overflow: scroll;*/
+}
+
+#span-nested{
+color:#ff0000
+}
+
+#span-nested2{
+color:#04B404
+}
+
+#statuspanel2{
+position:absolute;
+width:105%;
+right:-50%;
+top:150px;
+z-index: -1;
+}
+
+#statuspanelbody2{
+font-size: 120%;
+font-weight: bold;
+color: #808080;
+/*overflow: scroll;*/
+}
+
+
+
+
+
+/*#panel-header{
+position: relative;
+height: 40px;
+line-height: 40px;
+background: transparent -moz-linear-gradient(center top , #F9F6F1 0%, #F2EFEA 100%) repeat scroll 0% 0%;
+border: 1px solid #D6D6D6;
+}*/

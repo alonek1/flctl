@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+      body {
+        padding-top: 100px;
+        padding-left: 0px;
+      }
+      .container {
+        width: 450px;
+      }
+
+      /* The white background content wrapper */
+      .container > .content {
+        background-color: #fff;
+        padding: 10px;
+        margin: -10 0 10 -10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+           -moz-border-radius: 10px 10px 10px 10px;
+                border-radius: 10px 10px 10px 10px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+      .login-form {
+        margin-left: 45px;
+        margin-bottom: 20px;
+      }
+
+      legend {
+        margin-right: -50px;
+        font-weight: bold;
+          color: #404040;
+      }
+        .btn {
+        padding: 10px 120px;
+        border: 0 none;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-left:20px;
+         margin-top:20px;
+        }
+
+        .newtext {font-size: 8pt; color: #ff0000; font-family: arial}
+
+        h2{
+        margin-top:10px;
+        margin-left:120px;
+        font-size: 30pt;
+        font-weight: normal;
+        font-style: normal;
+        }
+        #usrname-input{
+        margin-left:40px;
+        }
+        #usrname-input2{
+        margin-left:40px;
+        }
+
+        html {
+
+        text-rendering: optimizeLegibility !important;
+
+        -webkit-font-smoothing: antialiased !important;
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="login-form">
+              <h2>Login</h2>
+                <form action="" method="post" name="login">
+                {{ form.hidden_tag() }}
+                <p>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                    {% for message in messages %}
+                        <li id="fl-msg"><SPAN CLASS="newtext">{{ message }} </span></li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                {% endwith %}
+
+                <span id="usrname-input">{{ form.username(size=30) }}</span>
+                {% for error_username in form.username.errors %}
+                    <SPAN CLASS="newtext">[{{ error_username }}]</span>
+                {% endfor %}<br>
+                </p>
+                 <span id="usrname-input2">{{form.password(size=30)}}</span>
+                {% for error_password in form.password.errors %}
+                <SPAN CLASS="newtext">[{{ error_password }}]</span>
+                {% endfor %}</br>
+      <!--input clas="btn" type="submit"  value="Sign In"-->
+
+                    <button type="button submit" class="btn btn-primary" >Sign In</button>
+     </form>
+                 </div>
+
+      </div>
+    </div>
+  </div> <!-- /container -->
+</body>
+</html>

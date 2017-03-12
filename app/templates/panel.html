@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fontsize="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon/1.png') }}">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/panel-bootstrap-style.css" rel="stylesheet">
+    <link href="/static/css/jQuery-plugin-progressbar.css" rel="stylesheet">
+    <link href="/static/css/panelstyle.css" rel="stylesheet">
+    <!--link rel="stylesheet" href="/static/css/panelstyle.css" media="all" style="text/css"/-->
+	<title>Admin Panel</title>
+
+</head>
+<body>
+
+<div id="main">
+	<div id="keep">
+
+	</div>
+		<div id="left">
+
+			<div id="logo">
+			</div>
+			<div id="tools">
+				<ul>
+					<a href="{{ url_for('panel') }}"><li  class="select" >Dashboard</li></a>
+					<a href="{{ url_for('routing') }}"><li id="menu2">Static-Pusher</li></a>
+					<a href="{{ url_for('stp') }}"><li id="menu3" >STP</li></a>
+					<a href="{{ url_for('etherchannel') }}"><li id="menu4">EtherChannel</li></a>
+					<a href="{{ url_for('dai') }}"><li id="menu5">DAI</li></a>
+					<!--a href="#"><li id="menu6">Yorumlar </span></li></a>
+					<a href="#"><li id="menu7">Bileşenler</li></a>
+					<a href="#"><li id="menu8">Eklentiler <!--span class="number">2</span></li></a>
+					<a href="#"><li id="menu9">Kullanıcılar</li></a-->
+					<a href="{{ url_for('portsecurity') }}"><li id="menu10">Port Security</li></a>
+					<a href="{{ url_for('settings') }}"><li id="menu11">Settings</li></a>
+				</ul>
+
+			</div>
+
+
+		</div>
+
+    <div id="plus">
+		<div id="right">
+			<div id="header">
+				<h2 class="text-muted" id="p_title">Control Panel</h2>
+					<!--a href="#">
+						<span id="arti"></span>
+					</a-->
+				</div>
+				<!--div id="other">
+
+					<a href="#"><span id="bulut"></span></a>
+					<a href="#"><span id="yorum"></span><div id="yorum_sayi">7</div></a>
+					<a href="#"><span id="zil"></span></a>
+					<a href="#"><span id="wordpress"></span></a>
+				</div-->
+
+			</div>
+<div class="container">
+    <div id="statuspanel" class="row">
+        <div  class="col-md-6">
+            <div class="panel panel-default">
+                <div id="panel-header" class="panel-heading">
+                    <h2  class="panel-title">
+                        Controller Status</h2><!--title-->
+                </div><!--head-->
+
+                    <div id="statuspanelbody" class="panel-body">
+                         <div class="table-responsive">
+                            <table class="table table-bordered">
+
+                                <tbody>
+                                    <tr>
+                                        <td>Uptime:</td>
+                                            <td>{{ uptime['day'] }} day  {{ uptime['hr'] }} hours {{ uptime['min'] }} minutes</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td >
+                                            Total Memory :
+                                        </td>
+                                        <td>
+                                            {{ memoryload['total'] }}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            Free Memory :
+                                        </td>
+                                        <td>
+                                            {{ memoryload['free'] }}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    
+                                </table>
+                         </div>
+                    </div><!--body-->
+                </div><!--panel-->
+            </div><!--col-md-->
+        </div>
+    </div>
+
+
+<div class="container">
+    <div id="statuspanel2" class="row">
+        <div  class="col-md-6">
+            <div class="panel panel-default">
+                <div id="panel-header2" class="panel-heading">
+                    <h2  class="panel-title">
+                        Loaded Module</h2><!--title-->
+                </div><!--head-->
+
+                    <div id="statuspanelbody2" class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                {% for key, value in loadedmodules.items() %}
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            {{ key }}
+                                        </td>
+                                            {% for key2, nested_value in value.items() %}
+                                                {%if key2 == 'loaded' %}
+                                                    {%if nested_value == False %}
+                                                        <td>
+                                                            <span id="span-nested" >Inactive</span>
+                                                        </td>
+
+                                                    {% else %}
+                                                        <td>
+                                                        <span id="span-nested2">Active</span>
+                                                        </td>
+                                        </tr>
+                                        </tbody>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor %}
+
+                                {% endfor %}
+                            </table>
+                        </div><!--body-->
+                    </div><!--panel-->
+            </div><!--col-md-->
+        </div>
+    </div>
+</div>
+
+
+
+
+			<!--div class="raw">
+                <div class="container">
+                    <div class="col-md-6">
+
+                        {{uptime}}
+                </div>
+            </div-->
+
+
+    <!--div class="container">
+        <div id="prgroress" class="row">
+            <div  class="col-md-6">
+
+                </div>
+            </div-->
+
+
+			<!--div id="body">
+				<div id="b_left">
+					<h3 class="bl_title">Controller Status:</h3>
+
+
+                    </div>
+					<div id="bl_1">
+						<h4 class="bll_title"></h4>
+						<div class="dots"></div>
+						<div id="bll_1">
+							<ul>
+								<li>179</li>
+								<li>13</li>
+								<li>21</li>
+								<li>305</li>
+							</ul>
+						</div>
+						<div id="bll_2">
+							<ul>
+								<li>Yazılar</li>
+								<li>Sayfalar</li>
+								<li>Kategoriler</li>
+								<li>Etiketler</li>
+							</ul>
+						</div>
+					</div>
+					<div id="bl_2">
+						<h4 class="bll_title">Tartışmalar</h4>
+						<div class="dots"></div>
+						<div id="blc_1">
+							<ul>
+								<li>353</li>
+								<li>319</li>
+								<li>0</li>
+								<li>34</li>
+							</ul>
+						</div>
+
+						<div id="blc_2">
+							<ul>
+								<li class="blue">Yorumlar</li>
+								<li class="green">Onaylı</li>
+								<li class="orange">Bekleyen</li>
+								<li class="red">Gereksiz</li>
+							</ul>
+						</div>
+					</div>
+
+					<!--div id="theme_notice">
+						<font class="blue">3 Bileşen</font> ile <font class="blue">Twenty Eleven</font> teması
+					</div-->
+
+
+
+				<!--div id="b_right"><-- jadvalha
+
+					<h3 class="bl_title">Hızlı Yayınla</h3><--inputha>
+
+					<div id="i_title">
+						<input type="text" name="i_title" placeholder="Başlık"/>
+					</div>
+
+					<div id="i_save">
+						<ul>
+							<li><a href="#"><img src="/static/media/panelimg/resim.png" alt="Resim Ekle"/></a></li>
+							<li><a href="#"><img src="/static/media/panelimg/video.png" alt="Video Ekle"/></a></li>
+						</ul>
+					</div>
+
+					<div id="i_content">
+						<input type="i_content" name="i_content" placeholder="İçerik"/>
+					</div>
+
+					<div id="i_tags">
+						<input type="i_tags" name="i_tags" placeholder="Etiketler"/>
+					</div>
+
+					<div id="i_publish">
+						<ul>
+							<li><button id="save"></button></li>
+							<li><button id="del"></button></li>
+							<li><button class="publish">Yayınla</button></li>
+						</ul>
+					</div>>
+
+
+				</div>
+
+			</div>
+
+
+			<!--div id="footer">
+
+				<div id="f_left">
+					Asif Aleem tarafından yapılan ücretsiz admin paneli teması.<br />
+					<font style="font-size:11px;color:#666666;"><a href="http://www.prototurk.com" style="color:#eb5440;" target="_blank">Prototürk.com</a> adına <a href="http://prototurk.com/member.php?416-anibor" target="_blank" title="anibor'un Prototürk hesabı" style="font-weight:bold;color:#eb5440;">anibor</a> tarafından kodlanmıştır.</font>
+				</div>
+
+				<div id="f_right">
+					<ul>
+						<li><a href="http://anibor.digeryuzu.com"><span id="user"><font>anibor</font></span></a></li>
+						<li><a href="#"><span id="setting"></span></a></li>
+						<li><a href="#"><span id="exit"></span></a></li>
+					</ul>
+				</div>
+
+			</div--><!--footer-->
+
+
+
+    </div>
+
+</div>
+
+    <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/jQuery-plugin-progressbar.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>

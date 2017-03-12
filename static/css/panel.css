@@ -1,0 +1,82 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+ 
+body {
+  background: #e5e5e7;
+}
+ 
+nav {
+  font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1.5;
+  margin: 50px auto; /*for display only*/
+  width: 200px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+ 
+.menu-item {
+  background: #fff;
+  width: 200px; 
+}
+.menu-item h4 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 12px;
+  background: #a90329;
+}
+
+.alpha p {
+ font-size: 13px;
+ padding: 8px 12px;
+ color: #aaa;
+}
+
+.menu-item ul {
+  background: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.menu-item ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #aaa;
+  display: block;
+  width: 200px;
+}
+
+/*li Styles*/
+.menu-item li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item li:hover {
+  background: #eee;
+}
+
+.menu-item ul {
+  background: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  height: 0px;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+
+  /*Animation*/
+  -webkit-transition: height 1s ease;
+     -moz-transition: height 1s ease;
+       -o-transition: height 1s ease;
+      -ms-transition: height 1s ease;
+          transition: height 1s ease;
+}
+.menu-item:hover ul {
+  height: 93px;
+}
