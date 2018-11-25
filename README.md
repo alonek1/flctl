@@ -3,7 +3,8 @@ floodlight controller web panel
 
 
 the web-panel for floodlight SDN controller.
-the Floodlight SDN controller web-panel have some problem, specially in adding static-push. I decided to write a python (Flask) web-panel for it.
+the Floodlight SDN controller web-panel has some problem, specially in adding static-push. 
+I decided to write a python (Flask) web-panel for it.
 
 written in python(flask),HTML,Javascript and css.
 username:admin
